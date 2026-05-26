@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<link rel="apple-touch-icon" href="icon-192.png">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
 <style>
@@ -8933,9 +8934,14 @@ function printYearlyRecap() {
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js')
-      .then(function(reg) { console.log('SW registered'); })
-      .catch(function(err) { console.log('SW error:', err); });
+    // Chemin relatif — fonctionne sur GitHub Pages
+    navigator.serviceWorker.register('./sw.js', { scope: './' })
+      .then(function(reg) {
+        console.log('SW registered, scope:', reg.scope);
+      })
+      .catch(function(err) {
+        console.log('SW registration failed:', err);
+      });
   });
 }
 </script>
@@ -9076,9 +9082,14 @@ document.addEventListener('keydown',function(e){
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js')
-      .then(function(reg) { console.log('SW registered'); })
-      .catch(function(err) { console.log('SW error:', err); });
+    // Chemin relatif — fonctionne sur GitHub Pages
+    navigator.serviceWorker.register('./sw.js', { scope: './' })
+      .then(function(reg) {
+        console.log('SW registered, scope:', reg.scope);
+      })
+      .catch(function(err) {
+        console.log('SW registration failed:', err);
+      });
   });
 }
 </script>
